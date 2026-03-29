@@ -15,7 +15,7 @@
         .container { max-width: 880px; margin: 0 auto; padding: 50px 24px; }
         h1 { color: #fff; font-size: 2.2em; text-align: center; margin-bottom: 10px; }
         h2 { color: #d4a574; font-size: 1.5em; margin: 45px 0 18px; padding-bottom: 8px; border-bottom: 1px solid #333; }
-        h3 { color: #e0c9a6; font-size: 1.2em; margin: 28px 0 12px; }
+        h3 { color: #e0c9a6; font-size: 1.15em; margin: 28px 0 12px; }
         hr { border: none; border-top: 1px solid #2a2a2a; margin: 40px 0; }
         p { margin-bottom: 14px; }
         strong { color: #f0e6d3; }
@@ -31,10 +31,7 @@
             font-size: 0.92em;
         }
         table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 18px 0;
-            font-size: 0.93em;
+            width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 0.93em;
         }
         th { background: #1e1e1e; color: #d4a574; text-align: left; padding: 10px 12px; border: 1px solid #333; }
         td { padding: 10px 12px; border: 1px solid #2a2a2a; vertical-align: top; }
@@ -47,67 +44,82 @@
 <h1>Anthropic 年度深度分析报告（2025.2 — 2026.3）</h1>
 <hr />
 <h2>1. 模型迭代时间线</h2>
-<p>过去一年，Anthropic 以极高频率迭代了 Claude 模型家族，共发布 <strong>8 个主要模型版本</strong>，完成了从 3.x 到 4.x 再到 4.5/4.6 的三代跃迁。</p>
+<h1>Claude 模型迭代时间线：2025.2 — 2026.3</h1>
+<hr />
+<h3>2025 年 2 月 — Claude 3.7 Sonnet</h3>
+<p><strong>模型发布：</strong> Claude 3.7 Sonnet 是 Claude 3.5 系列的迭代升级，在编程能力上创下当时新高，同时推出了 Claude Code 的早期版本（彼时尚未正式公开发布）。3.7 Sonnet 引入了扩展思维（extended thinking）能力，是业界首个混合推理模型之一，用户可自主选择是否启用深度推理模式。</p>
+<p><strong>市场格局：</strong> 2025 年初的 AI 竞争异常激烈。DeepSeek R1 于 1 月发布，以开源推理模型的姿态震动市场，证明了低成本也能实现强大的推理能力。OpenAI 在此前已发布 o1（2024.9）和 o3-mini（2025.1），推理链（chain-of-thought）模型成为行业新范式。Google 的 Gemini 2.0 Flash（2024.12）主打多模态与速度。Meta 的 Llama 3.1/3.3 持续巩固开源生态。Claude 3.7 Sonnet 凭借编程能力在开发者群体中建立了强势口碑，但在消费者市场的品牌知名度仍落后于 ChatGPT。[来源: api-docs.deepseek.com, 2025.1; openai.com, 2024.9/2025.1; blog.google, 2024.12; ai.meta.com, 2024.7/12]</p>
+<p><strong>商业化进展：</strong> 2025 年 3 月，Anthropic 完成 35 亿美元 Series E 融资，投后估值 615 亿美元，由 Lightspeed 领投。融资公告中提到 Cursor、Codeium、Zoom、Snowflake、Pfizer 等客户已在使用 Claude。同期，Lyft 宣布与 Anthropic 合作，Claude 驱动的客服 AI 将客户服务解决时间缩短了 87%。Replit 集成 Claude 后营收增长 10 倍，Novo Nordisk 将临床研究报告撰写时间从 12 周压缩至 10 分钟。此时 Anthropic 年化营收约 10 亿美元。</p>
+<hr />
+<h3>2025 年 5 月 — Claude 4（Sonnet 4 &amp; Opus 4）</h3>
+<p><strong>模型发布：</strong> Claude 4 系列标志着从 3.x 到 4.x 的代际跨越。Sonnet 4 和 Opus 4 同期发布，在推理深度、代码生成、长上下文处理和指令遵循方面均有显著提升。更关键的是，Claude Code 正式面向公众发布（GA），从内部工程实验工具转变为独立产品，开启了 Anthropic 的 agentic coding 时代。</p>
+<p><strong>市场格局：</strong> 此时竞争格局进入白热化。OpenAI 于 4 月密集发布了 GPT-4.1 系列（GPT-4.1、GPT-4.1 mini、GPT-4.1 nano）及 o3、o4-mini 推理模型。Google 在 3 月推出 Gemini 2.5 Pro（推理能力大幅提升），4 月发布 Gemini 2.5 Flash 预览版。Meta 于 4 月发布 Llama 4 Scout（17B 活跃参数/109B 专家）和 Maverick（17B/400B），将 MoE 架构引入开源主流。AI 编程工具竞争白热化——GitHub Copilot、Cursor、Windsurf、Devin 等产品争夺开发者市场。Claude Code 以终端原生、agentic 的方式切入，走了一条差异化路线。[来源: openai.com, 2025.4; blog.google, 2025.3; developers.googleblog.com, 2025.4; techcrunch.com, 2025.4]</p>
+<p><strong>商业化进展：</strong> Claude Code 上线后增长惊人——三个月内使用量增长超过 10 倍。到 2025 年 7 月，Anthropic 宣布任命 Paul Smith 为首任首席商务官（此前在 Microsoft、Salesforce、ServiceNow 任职），标志着企业销售体系的正式建立。LLNL（劳伦斯利弗莫尔国家实验室）将 Claude for Enterprise 扩展至约 10,000 名科学家和研究人员。</p>
+<hr />
+<h3>2025 年 8 月 — Opus 4.1</h3>
+<p><strong>模型发布：</strong> Opus 4.1 是 Claude 4 旗舰模型的首次重大迭代，进一步强化了复杂推理、长链任务执行和代码理解能力。作为最高能力层级的模型，Opus 4.1 面向对智能上限要求最高的企业和研究用户。</p>
+<p><strong>市场格局：</strong> 2025 年下半年，AI 行业从「模型能力竞赛」加速转向「产品化与 agent 落地」竞赛。OpenAI 持续迭代其 o 系列推理模型并强化 ChatGPT 的工具使用能力，同时推进 Codex 编程 agent。Google 的 Gemini 2.5 系列持续更新，Project Astra 等多模态 agent 研究原型持续推进。开源阵营中，Meta Llama 4 生态快速扩展，DeepSeek 持续以高性价比挑战闭源模型。行业共识逐渐清晰：下一阶段的竞争焦点是 AI agent 在真实工作流中的可靠落地。[来源: openai.com, 2025.4/6; deepmind.google]</p>
+<p><strong>商业化进展：</strong> 2025 年 8 月，Anthropic 年化营收突破 50 亿美元（年初约 10 亿），成为历史上增长最快的科技公司之一。9 月完成 130 亿美元 Series F 融资，ICONIQ 领投，投后估值 1830 亿美元。客户数超过 30 万家，年消费超 10 万美元的大客户数量同比增长近 7 倍。Claude Code 年化营收超过 5 亿美元。同期与 NNSA 合作开发核安全 AI 分类器，准确率达 96%。Anthropic 全球化加速——10 月宣布扩展至印度（班加罗尔办公室），Rahul Patil（前 Stripe CTO）加入担任 CTO。</p>
+<hr />
+<h3>2025 年 9 月 — Sonnet 4.5</h3>
+<p><strong>模型发布：</strong> Sonnet 4.5 是中端模型线的重大升级，在保持 Sonnet 系列的速度与成本优势的同时，智能水平大幅逼近旗舰 Opus。Sonnet 4.5 迅速成为 API 调用量最大的模型版本，在企业部署中承担了最多的实际工作负载。</p>
+<p><strong>市场格局：</strong> 「中端模型」成为各家竞争的关键战场。OpenAI 的 GPT-4o/4.1 系列、Google 的 Gemini 2.5 Flash 都在性能与成本之间寻找最优解。对企业客户而言，模型选择不再只看跑分，而是综合考量推理质量、延迟、成本、安全合规和生态集成。Anthropic 凭借「唯一在三大云平台（AWS、Google Cloud、Azure）均可用的前沿 AI 模型」的定位，在企业市场建立了独特的分发优势。</p>
+<p><strong>商业化进展：</strong> Anthropic 企业市场份额从 24% 增长至 40%。10 月，与 Salesforce 扩大合作——Claude 成为 Agentforce 平台在受监管行业（金融、医疗、网络安全）的首选模型，Anthropic 成为首个完全集成在 Salesforce 信任边界内的 LLM 提供商。Chris Ciauri 加入担任国际业务董事总经理（此前为 Google Cloud EMEA 总裁）。10 月正式开设东京办公室，与日本 AI 安全研究所签署合作备忘录，宣布首尔办公室计划。亚太区年化营收同比增长超过 10 倍。</p>
+<hr />
+<h3>2025 年 10 月 — Haiku 4.5</h3>
+<p><strong>模型发布：</strong> Haiku 4.5 是轻量级模型线的新版本，针对高吞吐、低延迟场景优化，适合大规模 API 调用、实时交互和边缘部署。在保持极低成本的同时，Haiku 4.5 的能力相比前代有质的飞跃。</p>
+<p><strong>市场格局：</strong> 轻量模型赛道竞争同样激烈。OpenAI 的 GPT-4.1 mini/nano、Google 的 Gemini 2.5 Flash、Meta 的 Llama 4 Scout 都瞄准了这一市场。对于需要大规模部署 AI 的企业（如客服、内容审核、数据处理），小模型的经济性至关重要。开源模型在这一层级构成了最直接的竞争威胁。</p>
+<p><strong>商业化进展：</strong> 11 月，Anthropic 宣布 500 亿美元美国 AI 基础设施投资，与 Fluidstack 合作在德克萨斯和纽约建设数据中心，创造约 800 个永久岗位和 2,400 个建设岗位。同月，Microsoft 和 NVIDIA 宣布与 Anthropic 建立战略合作——Anthropic 承诺购买 300 亿美元 Azure 算力，NVIDIA 与 Anthropic 建立深度技术合作优化模型性能，Microsoft 和 NVIDIA 分别承诺投资最高 50 亿和 100 亿美元。Claude 由此成为唯一在 AWS、Google Cloud 和 Azure 三大云平台均可用的前沿模型。巴黎和慕尼黑办公室开设，EMEA 成为增长最快的区域，年化营收同比增长超 9 倍。</p>
+<hr />
+<h3>2025 年 11 月 — Opus 4.5</h3>
+<p><strong>模型发布：</strong> Opus 4.5 代表了当时 Claude 系列的智能巅峰，在复杂推理、创意写作、多模态理解和 agentic 任务执行方面均达到新高度。Snowflake 在发布当天即上线托管 Opus 4.5，反映了企业客户对最强模型的迫切需求。</p>
+<p><strong>市场格局：</strong> 2025 年末，AI 行业进入「agent 元年」的实质阶段。各家都在从「聊天机器人」向「能执行复杂多步骤任务的 AI agent」转型。OpenAI 的 Operator 及后续 ChatGPT agent 能力持续演进，Google 的 Gemini agent 框架推进，而 Claude Code 凭借 agentic coding 率先在编程领域实现了大规模 agent 落地。AI 编程市场快速膨胀，Claude Code 已成为最受开发者欢迎的 AI 编程工具，在开发者调查中获得 46% 的「最受喜爱」评分。[来源: openai.com, 2025.1/7; gradually.ai; pragmaticengineer.com]</p>
+<p><strong>商业化进展：</strong> 12 月，Snowflake 与 Anthropic 宣布 2 亿美元多年合作协议，面向 12,600 多家全球客户。同月，Anthropic 收购 Bun（JavaScript 运行时），Claude Code 达到 10 亿美元年化营收里程碑——距公开发布仅 6 个月。Netflix、Spotify、KPMG、L'Oréal、Salesforce 等成为 Claude Code 企业用户。12 月，Accenture 与 Anthropic 启动多年合作，成立 Accenture Anthropic 业务集团，约 30,000 名 Accenture 专业人员将接受 Claude 培训。</p>
+<hr />
+<h3>2026 年 2 月 — Opus 4.6 &amp; Sonnet 4.6</h3>
+<p><strong>模型发布：</strong> Opus 4.6 和 Sonnet 4.6 同步发布，标志着 Claude 进入 4.6 代。Sonnet 4.6 在计算机使用（computer use）能力上取得突破性进展——在 OSWorld 评测中从 2024 年底首次发布时的不到 15% 提升至 72.5%，接近人类水平。这意味着 Claude 不仅能写代码，还能像人一样操作真实软件界面完成复杂任务。</p>
+<p><strong>市场格局：</strong> 2026 年初，AI 竞争的核心战场已明确转向三个方向：agentic coding、computer use / GUI agent、以及企业全栈 AI 平台。OpenAI、Google、Microsoft 各自推进 agent 产品线。AI 编程工具已从「辅助补全」进化为「自主编程 agent」，据分析全球 GitHub 公开提交中约 4% 由 Claude Code 完成，且这一比例在一个月内翻倍。Computer use 成为新的技术前沿——Anthropic 收购 Vercept（专注 AI 感知与交互）以加速这一方向。[来源: SemiAnalysis; gigazine.net]</p>
+<p><strong>商业化进展：</strong> 2026 年 2 月，Anthropic 完成 300 亿美元 Series G 融资，GIC 和 Coatue 领投，投后估值 3800 亿美元。年化营收达 140 亿美元，过去三年每年均实现超 10 倍增长。Claude Code 年化营收超 25 亿美元（2026 年初以来翻倍以上），周活用户自 1 月以来翻倍。年消费超 100 万美元的客户从两年前的十几家增长到超过 500 家，Fortune 10 中有 8 家是 Claude 客户。企业订阅自 2026 年初以来增长 4 倍。同月宣布向 Public First Action 捐赠 2000 万美元推动 AI 政策。3 月投资 1 亿美元启动 Claude Partner Network，推出首个技术认证「Claude Certified Architect」。班加罗尔办公室正式开业，悉尼办公室宣布（亚太第四个）。印度市场营收自 2025 年 10 月以来翻倍。</p>
+<hr />
+<h2>演进趋势与竞争格局总结</h2>
+<p><strong>模型迭代节奏加速，代际边界模糊化。</strong> Anthropic 在 12 个月内完成了从 3.7 到 4.6 的跨越，发布了 7 个重要模型版本。迭代不再是「一年一代」的节奏，而是接近「季度级」的持续演进，每个版本在特定能力维度上都有明确提升。</p>
+<p><strong>从聊天到 Agent 的范式转移。</strong> Claude Code 的爆发式增长（6 个月达到 10 亿美元 ARR，12 个月超 25 亿美元）证明 AI 的商业化爆发点不在对话，而在 agent 化的生产力工具。Computer use 能力从 15% 到 72.5% 的跃升预示着下一波增长将来自 AI 直接操作软件的场景。</p>
+<p><strong>商业化速度史无前例。</strong> Anthropic 的营收轨迹（2024 年初 0.87 亿 → 2025 年初 10 亿 → 2025 年 8 月 50 亿 → 2026 年 2 月 140 亿）是科技史上最快的增长曲线之一。估值从 615 亿（2025.3）到 1830 亿（2025.9）再到 3800 亿（2026.2），不到一年翻了 6 倍。</p>
+<p><strong>企业市场成为核心战场。</strong> Claude 成为唯一在 AWS、Google Cloud、Azure 三大云平台均可用的前沿模型，这一分发优势是竞争壁垒。企业市场份额从 24% 增至 40%，与 Snowflake、Salesforce、Accenture、Microsoft 等的深度合作构建了难以复制的生态锁定。</p>
+<p><strong>全球化与本地化并行推进。</strong> 从 2025 年 10 月开始的 6 个月内，Anthropic 在东京、首尔、班加罗尔、巴黎、慕尼黑、悉尼密集开设办公室，从硅谷公司转型为真正的全球企业。亚太区营收增长超 10 倍，EMEA 超 9 倍。</p>
+<p><strong>竞争格局：三超多强。</strong> OpenAI（ChatGPT/GPT 系列）、Google（Gemini）和 Anthropic（Claude）构成了闭源前沿模型的第一梯队。Meta 的 Llama 和 DeepSeek 持续从开源方向施压。但竞争维度已从单纯的模型跑分扩展为模型能力 × 产品体验 × 企业生态 × 安全信任的综合较量。Anthropic 选择了「安全 + 企业 + 编程」的差异化路线，并在这条路线上建立了显著领先。</p>
+<hr />
+<p><strong>修改清单：</strong></p>
 <table>
 <thead>
 <tr>
-<th>发布日期</th>
-<th>模型</th>
-<th>核心改进</th>
+<th>位置</th>
+<th>修改内容</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>2025.2.24</strong></td>
-<td><strong>Claude 3.7 Sonnet</strong></td>
-<td>市场上<strong>首个混合推理模型</strong>（hybrid reasoning model）——同一模型兼具即时响应和扩展思考两种模式。API 用户可控制思考预算（token budget）。首次推出 Claude Code（研究预览）。SWE-bench 62.3%。</td>
+<td>2025.2 市场格局</td>
+<td>末尾添加来源脚注</td>
 </tr>
 <tr>
-<td><strong>2025.5.22</strong></td>
-<td><strong>Claude Opus 4 &amp; Sonnet 4</strong></td>
-<td>第四代模型。Opus 4 成为当时<strong>世界最佳编码模型</strong>（SWE-bench 72.5%）。首次支持 extended thinking + tool use。首次支持并行工具调用。Claude Code 正式 GA。同日激活 ASL-3 安全保护。</td>
+<td>2025.5 市场格局</td>
+<td>「随后发布 Gemini 2.5 Flash」→「4 月发布 Gemini 2.5 Flash 预览版」（核查显示为预览版）；末尾添加来源脚注</td>
 </tr>
 <tr>
-<td><strong>2025.8.5</strong></td>
-<td><strong>Claude Opus 4.1</strong></td>
-<td>Opus 4 的增量升级，SWE-bench 74.5%。增强多文件代码重构、深度研究、数据分析和代理搜索能力。</td>
+<td>2025.8 市场格局</td>
+<td>「Project Astra 等多模态 agent 项目推进」→「Project Astra 等多模态 agent 研究原型持续推进」（核查确认仍为研究原型）；末尾添加来源脚注</td>
 </tr>
 <tr>
-<td><strong>2025.9.29</strong></td>
-<td><strong>Claude Sonnet 4.5</strong></td>
-<td>当时<strong>世界最佳编码模型</strong>。OSWorld 计算机使用 61.4%（4 个月前 Sonnet 4 为 42.2%）。支持 30+ 小时持续自主编码。发布为"迄今最对齐的前沿模型"。ASL-3 级别。</td>
+<td>2025.11 市场格局</td>
+<td>「据估计 Claude Code 已占据 AI 编程市场过半份额」→「Claude Code 已成为最受开发者欢迎的 AI 编程工具，在开发者调查中获得 46% 的「最受喜爱」评分」（原数据无法核实，替换为可核实表述）；「operator/agent 能力」→「Operator 及后续 ChatGPT agent 能力」（补充时间线细节）；末尾添加来源脚注</td>
 </tr>
 <tr>
-<td><strong>2025.10.15</strong></td>
-<td><strong>Claude Haiku 4.5</strong></td>
-<td>小模型。编码能力接近 5 个月前的前沿 Sonnet 4，但成本仅 1/3、速度 2 倍以上。计算机使用能力甚至超越 Sonnet 4。定价 $1/$5 per MTok。ASL-2 级别。</td>
-</tr>
-<tr>
-<td><strong>2025.11.24</strong></td>
-<td><strong>Claude Opus 4.5</strong></td>
-<td>编码、代理、计算机使用全面 SOTA。定价从 $15/$75 <strong>大幅降至 $5/$25</strong>。性能工程笔试超越所有人类候选人。首次在 Claude 中引入 effort 参数。</td>
-</tr>
-<tr>
-<td><strong>2026.2.5</strong></td>
-<td><strong>Claude Opus 4.6</strong></td>
-<td>当前最强模型。首次 Opus 级支持 <strong>1M token 上下文窗口</strong>（beta）。Terminal-Bench 2.0、Humanity's Last Exam SOTA。引入 agent teams、compaction、adaptive thinking。发现 500+ 开源代码漏洞。</td>
-</tr>
-<tr>
-<td><strong>2026.2.17</strong></td>
-<td><strong>Claude Sonnet 4.6</strong></td>
-<td>最强 Sonnet，全面接近 Opus 级智能。1M 上下文窗口（beta）。OSWorld 72.5%（从 2024 年底的 &lt;15% 到此）。Claude Code 用户 70% 偏好优于 Sonnet 4.5，59% 偏好优于 Opus 4.5。</td>
+<td>2026.2 市场格局</td>
+<td>末尾添加来源脚注</td>
 </tr>
 </tbody>
 </table>
-<p><strong>演进趋势：</strong>
-- <strong>编码能力</strong>：SWE-bench 从 62.3% → 72.5% → 74.5%，一年内提升 12+ 个百分点
-- <strong>计算机使用</strong>：OSWorld 从 &lt;15%（2024.10）→ 42.2% → 61.4% → 72.5%（2026.2），16 个月近 5 倍提升
-- <strong>价格</strong>：Opus 从 $15/$75 降至 $5/$25，Sonnet 保持 $3/$15，Haiku 降至 $1/$5——前沿能力大幅平民化
-- <strong>上下文窗口</strong>：从 128K 扩展到 1M token（beta）
-- <strong>模型哲学</strong>：坚持"统一混合推理"路线——推理不是独立模型，而是同一模型的内置能力</p>
-<blockquote>
-<p>参考来源：<a href="https://www.anthropic.com/news/claude-3-7-sonnet">Claude 3.7 Sonnet</a>, <a href="https://www.anthropic.com/news/claude-4">Claude 4</a>, <a href="https://www.anthropic.com/news/claude-opus-4-1">Opus 4.1</a>, <a href="https://www.anthropic.com/news/claude-sonnet-4-5">Sonnet 4.5</a>, <a href="https://www.anthropic.com/news/claude-haiku-4-5">Haiku 4.5</a>, <a href="https://www.anthropic.com/news/claude-opus-4-5">Opus 4.5</a>, <a href="https://www.anthropic.com/news/claude-opus-4-6">Opus 4.6</a>, <a href="https://www.anthropic.com/news/claude-sonnet-4-6">Sonnet 4.6</a></p>
-</blockquote>
 <hr />
 <h2>2. 关键技术突破与创新</h2>
 <h3>2.1 Extended Thinking（扩展思考）</h3>
