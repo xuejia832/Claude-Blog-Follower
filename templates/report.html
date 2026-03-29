@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anthropic Blog 分析报告</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #0f0f0f;
+            color: #e0e0e0;
+            line-height: 1.7;
+        }
+        .container { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+        header {
+            text-align: center;
+            padding: 60px 0 40px;
+            border-bottom: 1px solid #2a2a2a;
+            margin-bottom: 50px;
+        }
+        header h1 {
+            font-size: 2.4em;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        header .subtitle {
+            color: #888;
+            font-size: 1.1em;
+        }
+
+        /* Timeline analysis section */
+        .analysis-section {
+            background: #1a1a1a;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 50px;
+            border: 1px solid #2a2a2a;
+        }
+        .analysis-section h2 {
+            color: #d4a574;
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #333;
+        }
+        .analysis-section h3 {
+            color: #e0c9a6;
+            font-size: 1.2em;
+            margin: 25px 0 12px;
+        }
+        .analysis-section p {
+            margin-bottom: 12px;
+            color: #ccc;
+        }
+        .analysis-section ul, .analysis-section ol {
+            margin: 10px 0 10px 24px;
+            color: #bbb;
+        }
+        .analysis-section li { margin-bottom: 6px; }
+
+        /* Articles section */
+        .articles-header {
+            font-size: 1.8em;
+            color: #fff;
+            margin: 50px 0 30px;
+            text-align: center;
+        }
+        .year-group { margin-bottom: 40px; }
+        .year-label {
+            font-size: 1.4em;
+            color: #d4a574;
+            margin-bottom: 16px;
+            padding-left: 8px;
+            border-left: 3px solid #d4a574;
+        }
+
+        .article-card {
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 10px;
+            padding: 24px;
+            margin-bottom: 16px;
+            transition: border-color 0.2s;
+        }
+        .article-card:hover { border-color: #444; }
+        .article-card .meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .article-card .date { color: #888; font-size: 0.9em; }
+        .article-card h3 { font-size: 1.15em; color: #fff; margin-bottom: 10px; }
+        .article-card h3 a {
+            color: #7eb8da;
+            text-decoration: none;
+        }
+        .article-card h3 a:hover { text-decoration: underline; }
+        .article-card .summary { color: #aaa; font-size: 0.95em; margin-bottom: 12px; }
+        .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+        .tag {
+            background: #2a2a2a;
+            color: #999;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+        }
+        .tag.tech { color: #7eb8da; border: 1px solid #2a4a5a; background: #1a2a35; }
+        .tag.viewpoint { color: #a5d6a7; border: 1px solid #2a4a2a; background: #1a2a1a; }
+
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 30px 0;
+            color: #888;
+        }
+        .stats-bar .stat-num { font-size: 2em; color: #fff; font-weight: bold; }
+        .stats-bar .stat-label { font-size: 0.85em; }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #555;
+            border-top: 1px solid #2a2a2a;
+            margin-top: 40px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Anthropic Blog 分析报告</h1>
+            <p class="subtitle">基于 {{ total_articles }} 篇博客文章的全面分析 | 生成于 {{ generated_at }}</p>
+        </header>
+
+        <div class="stats-bar">
+            <div style="text-align:center">
+                <div class="stat-num">{{ total_articles }}</div>
+                <div class="stat-label">总文章数</div>
+            </div>
+            <div style="text-align:center">
+                <div class="stat-num">{{ analyzed_articles }}</div>
+                <div class="stat-label">已分析</div>
+            </div>
+            <div style="text-align:center">
+                <div class="stat-num">{{ year_span }}</div>
+                <div class="stat-label">时间跨度</div>
+            </div>
+        </div>
+
+        {% if timeline_analysis %}
+        <div class="analysis-section">
+            {{ timeline_analysis }}
+        </div>
+        {% endif %}
+
+        <h2 class="articles-header">全部文章</h2>
+
+        {% for year, articles in articles_by_year %}
+        <div class="year-group">
+            <h3 class="year-label">{{ year }}</h3>
+            {% for article in articles %}
+            <div class="article-card">
+                <div class="meta">
+                    <span class="date">{{ article.published_date or 'unknown' }}</span>
+                </div>
+                <h3><a href="{{ article.url }}" target="_blank">{{ article.title }}</a></h3>
+                {% if article.summary %}
+                <p class="summary">{{ article.summary }}</p>
+                {% endif %}
+                <div class="tags">
+                    {% for tech in article.key_tech_list %}
+                    <span class="tag tech">{{ tech }}</span>
+                    {% endfor %}
+                    {% for vp in article.key_viewpoints_list %}
+                    <span class="tag viewpoint">{{ vp }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+
+        <footer>
+            Claude Blog Follower | Powered by Claude API
+        </footer>
+    </div>
+</body>
+</html>

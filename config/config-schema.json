@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Claude Blog Follower Configuration",
+  "type": "object",
+  "properties": {
+    "language": {
+      "type": "string",
+      "enum": ["zh", "en", "bilingual"],
+      "default": "zh",
+      "description": "Output language for analysis and reports"
+    },
+    "timezone": {
+      "type": "string",
+      "default": "Asia/Shanghai",
+      "description": "IANA timezone string"
+    },
+    "frequency": {
+      "type": "string",
+      "enum": ["daily", "weekly"],
+      "default": "weekly",
+      "description": "Digest frequency"
+    },
+    "delivery_time": {
+      "type": "string",
+      "pattern": "^\\d{2}:\\d{2}$",
+      "default": "09:00",
+      "description": "Delivery time in HH:MM format"
+    },
+    "weekly_day": {
+      "type": "string",
+      "enum": ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"],
+      "default": "monday",
+      "description": "Day of week for weekly digests"
+    },
+    "delivery": {
+      "type": "object",
+      "properties": {
+        "method": {
+          "type": "string",
+          "enum": ["stdout", "email", "wechat"],
+          "default": "stdout",
+          "description": "Delivery method"
+        }
+      },
+      "default": {"method": "stdout"}
+    },
+    "sources": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "List of enabled source IDs (empty = all enabled)"
+    },
+    "analysis": {
+      "type": "object",
+      "properties": {
+        "model": {
+          "type": "string",
+          "default": "claude-haiku-4-5-20251001",
+          "description": "Model for single article analysis"
+        },
+        "timeline_model": {
+          "type": "string",
+          "default": "claude-sonnet-4-5-20241022",
+          "description": "Model for timeline analysis"
+        },
+        "max_content_length": {
+          "type": "integer",
+          "default": 15000,
+          "description": "Max article content length before truncation"
+        }
+      },
+      "default": {}
+    },
+    "lookback_hours": {
+      "type": "integer",
+      "default": 168,
+      "description": "How far back to look for new articles (default 7 days)"
+    },
+    "max_articles_per_source": {
+      "type": "integer",
+      "default": 10,
+      "description": "Maximum articles to fetch per source per run"
+    },
+    "display_count": {
+      "type": "integer",
+      "default": 20,
+      "description": "Default number of articles to show in list command"
+    }
+  },
+  "additionalProperties": false
+}

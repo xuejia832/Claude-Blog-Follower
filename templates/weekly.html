@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #fff;
+            color: #333;
+            line-height: 1.7;
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 { color: #1a1a1a; font-size: 1.6em; border-bottom: 2px solid #d4a574; padding-bottom: 10px; }
+        h2 { color: #444; font-size: 1.2em; margin-top: 24px; }
+        .article { background: #f9f9f9; border-radius: 8px; padding: 16px; margin: 12px 0; }
+        .article h3 { margin: 0 0 8px; font-size: 1.05em; }
+        .article h3 a { color: #2563eb; text-decoration: none; }
+        .article h3 a:hover { text-decoration: underline; }
+        .article .date { color: #888; font-size: 0.85em; }
+        .article .summary { color: #555; font-size: 0.95em; margin-top: 8px; }
+        .tags { margin-top: 8px; }
+        .tag {
+            display: inline-block;
+            background: #e8e8e8;
+            color: #666;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.8em;
+            margin-right: 4px;
+        }
+        footer { color: #999; font-size: 0.85em; margin-top: 30px; padding-top: 15px; border-top: 1px solid #eee; }
+    </style>
+</head>
+<body>
+    <h1>Anthropic 博客周报</h1>
+    <p style="color:#888;">{{ date_range }} | 共 {{ articles | length }} 篇新文章</p>
+
+    {% if articles %}
+    {% for article in articles %}
+    <div class="article">
+        <h3><a href="{{ article.url }}" target="_blank">{{ article.title }}</a></h3>
+        <div class="date">{{ article.published_date or '' }}</div>
+        {% if article.summary %}
+        <div class="summary">{{ article.summary }}</div>
+        {% endif %}
+        {% if article.key_tech_list %}
+        <div class="tags">
+            {% for tech in article.key_tech_list %}
+            <span class="tag">{{ tech }}</span>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+    {% else %}
+    <p>本周暂无新文章。</p>
+    {% endif %}
+
+    <footer>
+        由 Claude Blog Follower 自动生成
+    </footer>
+</body>
+</html>

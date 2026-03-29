@@ -1,0 +1,22 @@
+{
+  "sources": [
+    {
+      "id": "anthropic-news",
+      "name": "Anthropic News",
+      "type": "sitemap",
+      "scraper": "anthropic_news",
+      "sitemap_url": "https://www.anthropic.com/sitemap.xml",
+      "url_prefix": "https://www.anthropic.com/news/",
+      "enabled": true
+    },
+    {
+      "id": "anthropic-engineering",
+      "name": "Anthropic Engineering",
+      "type": "index_page",
+      "scraper": "anthropic_engineering",
+      "index_url": "https://www.anthropic.com/engineering",
+      "url_prefix": "https://www.anthropic.com/research/",
+      "enabled": true
+    }
+  ]
+}
